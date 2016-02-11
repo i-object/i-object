@@ -1,6 +1,6 @@
 var  express = require('express');
 var express = require('express-partials');
-var bodyParser = require('bodyParser');
+var bodyParser = require('body-parser');
 var http = requite('http');
 
 var app = express();
