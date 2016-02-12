@@ -1,15 +1,17 @@
-var myApp = angular.module('myApp',['myApp.homeController', 'myApp.homeServices', 'ui.router'])
+angular.module('theButton',['theButton.buttonController', 'theButton.buttonFactory', 'ui.router'])
 
 .config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider
-  .state('home',{
-    templateUrl:"./home/home.html",
-    url:'/home',
-    controller:'homeController'
+  .state('button',{
+    templateUrl:"./button/button.html",
+    url:'/button',
+    controller:'buttonController'
   })
   .state('stats',{
     templateUrl:"./stats/stats.html",
     url:"/stats",
     controller:'statsController'
   });
-};
+
+  $urlRouterProvider.otherwise('/button'); //default if the above doesn't apply
+});

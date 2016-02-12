@@ -1,15 +1,16 @@
-angular.module('myApp.homeServices',[])
+angular.module('theButton.buttonFactory',[])
 
 .factory('Info', function($http) {
-  var postingInfo = function(action) {
+  var postingInfo = function(user) {
     return $http({
       method: 'POST',
-      url: ,
-      data: action
+      url: '/api/button',
+      data: user
     });
   };
 
   return {
     postingInfo: postingInfo
-  }
+  };
+
 });
