@@ -5,24 +5,24 @@ var controller = {};
 
 controller.sendButtonData = function(req,res) {
   var currentDate = Date.now()
+  console.log("req body is: ",req.body);
+  // var latitude = req.body.latitude;
+  // var longitude = req.body.longitude;
+  // var apiKey = 'a596d9028162d68b23321b5fd78bbe1d';
 
-  var latitude = req.body.latitude;
-  var longitude = req.body.longitude;
-  var apiKey = 'a596d9028162d68b23321b5fd78bbe1d';
-
-    var darkSky = function(lat,lon,apiKey) {
-      var url = 'https://api.forecast.io/forecast/'+apiKey+'/'+lat+","+lon;
+    // var darkSky = function(lat,lon,apiKey) {
+    //   var url = 'https://api.forecast.io/forecast/'+apiKey+'/'+lat+","+lon;
       
-      request.get(url, function(err,response,body){
-        var skyBody = JSON.parse(body);
-        var currentSky = skyBody.currently;
+    //   request.get(url, function(err,response,body){
+    //     var skyBody = JSON.parse(body);
+    //     var currentSky = skyBody.currently;
 
         //this is going to depend on what the client side req body looks like
         var buttonData = new Occur({user: req.body.user,
-                                    date: currentDate, 
-                                    weather: currentSky.summary,
-                                    temperature: currentSky.temperature,
-                                    pressure: currentSky.pressure
+                                    date: currentDate 
+                                    // weather: currentSky.summary,
+                                    // temperature: currentSky.temperature,
+                                    // pressure: currentSky.pressure
                                   });
 
         buttonData.save(function(err, newButtonData) {
@@ -34,11 +34,11 @@ controller.sendButtonData = function(req,res) {
             res.send(200,newButtonData);
           }
         });
-      });
+      // });
     };  
 
-  darkSky(latitude,longitude,apiKey);  
-};
+  // darkSky(latitude,longitude,apiKey);  
+// };
 
 controller.retrieveStats = function(req,res) {
   Occur.find({user:req.body.user}).exec(function(err,found) {
