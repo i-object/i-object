@@ -1,4 +1,4 @@
-angular.module('theButton',['theButton.buttonController', 'theButton.buttonFactory', 'ui.router'])
+angular.module('theButton',['theButton.buttonController', 'theButton.buttonFactory', 'ui.router','theButton.statsController', 'theButton.statsFactory'])
 
 .config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider
