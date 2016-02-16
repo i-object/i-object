@@ -17,8 +17,17 @@ angular.module('theButton.statsFactory',[])
 
         for(var i=0; i<userData.data.length; i++){
             console.log('we in the for loop');
-            var currentTime=userData.data[i]['date'].slice(11, 13);
+            var currentTime=userData.data[i]['hour'];
+            if(userData.data[i]['minute'] > 30) {
+              currentTime+=1;
+            }
+            if(currentTime===24) {
+              currentTime = 0;
+            }
+            //^ todo: handle edge case issues for dates, year changes.
+
             console.log("currentTime is ", currentTime)
+            console.log(typeof currentTime);
             if(dateObject[currentTime]===undefined){
                 dateObject[currentTime]=1;
             }else{

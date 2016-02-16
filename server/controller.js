@@ -4,31 +4,41 @@ var request = require('request');
 var controller = {};
 
 controller.sendButtonData = function(req,res) {
-  var currentDate = Date.now();
+  var currentDate = new Date();
 
-  // var latitude = req.body.latitude;
-  // var longitude = req.body.longitude;
-  // var apiKey = 'a596d9028162d68b23321b5fd78bbe1d';
+  var currentHour =currentDate.getHours();
+  var currentMinute = currentDate.getMinutes();
 
-    // var darkSky = function(lat,lon,apiKey) {
-    //   var url = 'https://api.forecast.io/forecast/'+apiKey+'/'+lat+","+lon;
+  var currentDay=currentDate.getDay() +  "/" + currentDate.getMonth() + "/" + currentDate.getFullYear();
+
+  var latitude = req.body.latitude;
+  var longitude = req.body.longitude;
+  var apiKey = 'a596d9028162d68b23321b5fd78bbe1d';
+
+    var darkSky = function(lat,lon,apiKey) {
+      console.log('this shit got called')
+      var url = 'https://api.forecast.io/forecast/'+apiKey+'/'+lat+","+lon;
       
       request.get(url, function(err,response,body){
-        // var skyBody = JSON.parse(body);
-        // var currentSky = skyBody.currently;
+        var skyBody = JSON.parse(body);
+        var currentSky = skyBody.currently;
 
         //this is going to depend on what the client side req body looks like
         var buttonData = new Occur({user: req.body.user,
-                                    date: currentDate
-                                    // weather: currentSky.summary,
-                                    // temperature: currentSky.temperature,
-                                    // pressure: currentSky.pressure
+                                    day: currentDay,
+                                    hour: currentHour,
+                                    minute: currentMinute,
+                                    weather: currentSky.summary,
+                                    temperature: currentSky.temperature,
+                                    pressure: currentSky.pressure,
+                                    latitude: latitude,
+                                    longitude: longitude
 
                                   });
 
         buttonData.save(function(err, newButtonData) {
           if(err) {
-            console.log('we got an error in save');
+            console.log('we got an error in save', err);
             res.send(500, err);
           } else {
             console.log('hey the save worked for: ', newButtonData);
@@ -36,10 +46,11 @@ controller.sendButtonData = function(req,res) {
           }
         });
 
-      // });
-    });  
+      });
+  };  
 
-  // darkSky(latitude,longitude,apiKey);
+console.log('at least this shit got called')
+  darkSky(latitude,longitude,apiKey);
 };
 
 controller.retrieveStats = function(req,res) {

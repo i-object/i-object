@@ -6,6 +6,7 @@ angular.module('theButton.buttonFactory',[])
   var postingInfo = function(user) {
     if(navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
+        console.log('position obj looks like', position);
         console.log("latitude is: ", position.coords.latitude);
         var latitude = position.coords.latitude
         console.log("longitude is: ", position.coords.longitude);
