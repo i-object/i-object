@@ -3,11 +3,15 @@ var db = require('./config.js');
 var mongoose = require('mongoose');
 
 var occurSchema = new mongoose.Schema( {
-  date: Date,
+  day: String,
+  hour: Number,
+  minute: Number,
   user: String,
   weather: String,
   temperature: Number,
-  pressure: Number
+  pressure: Number,
+  latitude: Number,
+  longitude: Number
 } );
 
 var Occur = mongoose.model('Occur', occurSchema);
