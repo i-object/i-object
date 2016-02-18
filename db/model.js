@@ -11,7 +11,9 @@ var occurSchema = new mongoose.Schema( {
   temperature: Number,
   pressure: Number,
   latitude: Number,
-  longitude: Number
+  longitude: Number,
+  airQuality: Number,
+  airQualityDesc: String
 } );
 
 var Occur = mongoose.model('Occur', occurSchema);

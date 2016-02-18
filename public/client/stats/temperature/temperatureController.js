@@ -2,12 +2,15 @@ angular.module('theButton.temperatureController',[])
 
 .controller('temperatureController', function ($scope, getData, $timeout){
     $scope.username;
+    console.log(getData.tupleData.temperature);
     $scope.tupleData=getData.tupleData.temperature;
 
     $scope.retrieveInfo= getData.retrieveInfo;
 
     var render = function() {
+    $scope.tupleData=getData.tupleData.temperature;
      d3.select("svg").remove();
+     console.log('render function invoked');
 
      var w = 940;
      var h = 300;
@@ -53,10 +56,13 @@ angular.module('theButton.temperatureController',[])
         .attr('r', 3)
    };
 
-  $scope.reRenderDate = function() {
-      $timeout(render, 1000)
+  $scope.reRenderDate = function(user) {
+    $scope.retrieveInfo(user).then(function(info){
+      console.log(info);
+      render();
+    });
   };
 
-  $scope.reRenderDate();
+  d3.select("svg").remove();
 
 })

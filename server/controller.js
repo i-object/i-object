@@ -14,14 +14,23 @@ controller.sendButtonData = function(req,res) {
   var latitude = req.body.latitude;
   var longitude = req.body.longitude;
   var apiKey = 'a596d9028162d68b23321b5fd78bbe1d';
+  var breezeApiKey = '1ddd44fcabb8452284b39099e8aaf1df';
 
     var darkSky = function(lat,lon,apiKey) {
       console.log('this shit got called')
       var url = 'https://api.forecast.io/forecast/'+apiKey+'/'+lat+","+lon;
+      var breezeUrl = 'https://api.breezometer.com/baqi/?lat='+lat+'&lon='+lon+'&key='+breezeApiKey;
       
       request.get(url, function(err,response,body){
         var skyBody = JSON.parse(body);
         var currentSky = skyBody.currently;
+        request.get({url:breezeUrl, rejectUnauthorized: false
+      }, function(err,response,body) {
+  if(err) {
+    console.log('error for breezeOMeter is: ', err);
+  } else{
+        var breezeBody = JSON.parse(body);
+          console.log("hey man look at this breeze stuff",breezeBody.breezometer_aqi, breezeBody.breezometer_description);
 
         //this is going to depend on what the client side req body looks like
         var buttonData = new Occur({user: req.body.user,
@@ -32,8 +41,9 @@ controller.sendButtonData = function(req,res) {
                                     temperature: currentSky.temperature,
                                     pressure: currentSky.pressure,
                                     latitude: latitude,
-                                    longitude: longitude
-
+                                    longitude: longitude,
+                                    airQuality: breezeBody.breezometer_aqi,
+                                    airQualityDesc: breezeBody.breezometer_description
                                   });
 
         buttonData.save(function(err, newButtonData) {
@@ -46,10 +56,13 @@ controller.sendButtonData = function(req,res) {
           }
         });
 
-      });
+      }
+    });
+
+    });
   };  
 
-console.log('at least this shit got called')
+  console.log('at least this shit got called')
   darkSky(latitude,longitude,apiKey);
 };
 
