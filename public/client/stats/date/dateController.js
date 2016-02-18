@@ -1,14 +1,16 @@
-angular.module('theButton.statsController',[])
+angular.module('theButton.dateController',[])
 
-.controller('statsController', function ($scope, getData, $timeout){
+.controller('dateController', function ($scope, getData, $timeout){
     $scope.username;
     $scope.tupleData=getData.tupleData.date;
 
     $scope.retrieveInfo= getData.retrieveInfo;
 
     var render = function() {
+      $scope.tupleData=getData.tupleData.date;
       d3.select("svg").remove();
-
+      console.log('render function invoked');
+      
       var w = 940;
       var h = 300;
       var pad = 20;
@@ -53,10 +55,13 @@ angular.module('theButton.statsController',[])
          .attr('r', 3)
     };
 
-    $scope.reRenderDate = function() {
-      $timeout(render, 1000)
+    $scope.reRenderDate = function(user) {
+      $scope.retrieveInfo(user).then(function(info){
+      console.log(info);
+      render();
+      });
     };
 
-    $scope.reRenderDate();
+    d3.select("svg").remove();
 
 })

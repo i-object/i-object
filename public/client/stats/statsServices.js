@@ -14,16 +14,15 @@ angular.module('theButton.statsFactory',[])
     })
     .then(function(userData){
         console.log("In client responding to stats");
-        console.log(userData);
 
         var dataObject = {}
         dataObject.date = {};
+           tupleData.date=[];
+   tupleData.temperature = [];
         
 
         //for loop for date view
         for(var i=0; i<userData.data.length; i++){
-            console.log('we in the for loop');
-            console.log(userData.data[i])
             var currentTime=userData.data[i]['hour'];
             if(userData.data[i]['minute'] > 30) {
               currentTime+=1;
@@ -32,9 +31,6 @@ angular.module('theButton.statsFactory',[])
               currentTime = 0;
             }
             //^ todo: handle edge case issues for dates, year changes.
-
-            console.log("currentTime is ", currentTime)
-            console.log(typeof currentTime);
             if(dataObject.date[currentTime]===undefined){
                 dataObject.date[currentTime]=1;
             }else{
@@ -53,7 +49,6 @@ angular.module('theButton.statsFactory',[])
         dataObject.temperature = {};
         //for loop for temperature view
         for(var i=0; i<userData.data.length; i++){
-           console.log('we in the for loop');
            var currentTemp=userData.data[i]['temperature'];
            currentTemp=(Math.round(currentTemp / 10) * 10);
            if(dataObject.temperature[currentTemp]===undefined){

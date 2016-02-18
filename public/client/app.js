@@ -1,4 +1,4 @@
-angular.module('theButton',['theButton.buttonController', 'theButton.buttonFactory','theButton.temperatureController', 'ui.router','theButton.statsController', 'theButton.statsFactory'])
+angular.module('theButton',['theButton.buttonController', 'theButton.buttonFactory','theButton.temperatureController', 'ui.router','theButton.dateController', 'theButton.statsFactory'])
 
 .config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider
@@ -7,10 +7,15 @@ angular.module('theButton',['theButton.buttonController', 'theButton.buttonFacto
     url:'/button',
     controller:'buttonController'
   })
-  .state('stats',{
-    templateUrl:"./stats/stats.html",
-    url:"/stats",
-    controller:'statsController'
+
+  .state('button.child', {
+    template:'<h1> THIS IS AN AWESOME TEST </h1>',
+    url: '/child'
+  })
+  .state('date',{
+    templateUrl:"./stats/date/date.html",
+    url:"/date",
+    controller:'dateController'
   })
   .state('temperature',{
     templateUrl:"./stats/temperature/temperature.html",
