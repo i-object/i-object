@@ -20,10 +20,10 @@ angular.module('theButton.buttonController',[])
             longitude = position.coords.longitude;
             $scope.postingInfo(user, longitude, latitude).then(function(info){
                 console.log("the current data response looks like", info);
-                $scope.current.airQuality=info.data.airQuality;
-                $scope.current.airQualityDesc = info.data.airQualityDesc;
-                $scope.current.weather=info.data.weather;
-                $scope.current.temperature= info.data.temperature;
+                $scope.current.airQuality="Air Quality: "+info.data.airQuality;
+                $scope.current.airQualityDesc ="Air Quality status: "+ info.data.airQualityDesc;
+                $scope.current.weather="Weather: "+info.data.weather;
+                $scope.current.temperature="Temperature: "+ info.data.temperature;
             });
         });
     } else {
