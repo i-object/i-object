@@ -28,5 +28,5 @@ angular.module('theButton',['theButton.buttonController', 'theButton.buttonFacto
     controller:'weatherController'
   });
 
-  $urlRouterProvider.otherwise('/button'); //default if the above doesn't apply
+  $urlRouterProvider.otherwise('/button/child'); //default if the above doesn't apply
 });
