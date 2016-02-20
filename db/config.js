@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 mongoURI = process.env.MONGOLAB_URI || 'mongodb://localhost/iobject';
 mongoose.connect(mongoURI, function(err, res) {
   if (err) {
-    console.log('error connecting to: ' + uristring +'.' +err);
+    console.log('error connecting to: ' + mongoURI +'.' +err);
   } else {
     console.log('Mongodb connection open');
   }
