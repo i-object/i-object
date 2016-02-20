@@ -37,7 +37,7 @@ controller.sendButtonData = function(req,res) {
                                     day: currentDay,
                                     hour: currentHour,
                                     minute: currentMinute,
-                                    weather: currentSky.summary,
+                                    weather: currentSky.icon,
                                     temperature: currentSky.temperature,
                                     pressure: currentSky.pressure,
                                     latitude: latitude,

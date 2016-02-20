@@ -1,4 +1,4 @@
-angular.module('theButton',['theButton.buttonController', 'theButton.buttonFactory','theButton.temperatureController', 'ui.router','theButton.dateController', 'theButton.statsFactory'])
+angular.module('theButton',['theButton.buttonController', 'theButton.buttonFactory','theButton.temperatureController', 'ui.router','theButton.dateController', 'theButton.statsFactory', 'theButton.weatherController'])
 
 .config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider
@@ -9,10 +9,10 @@ angular.module('theButton',['theButton.buttonController', 'theButton.buttonFacto
   })
 
   .state('button.child', {
-    template:'<h1> THIS IS AN AWESOME TEST </h1>',
+    templateUrl:'./button/buttonChild.html',
     url: '/child'
   })
-  .state('date',{
+  .state('date', {
     templateUrl:"./stats/date/date.html",
     url:"/date",
     controller:'dateController'
@@ -21,6 +21,11 @@ angular.module('theButton',['theButton.buttonController', 'theButton.buttonFacto
     templateUrl:"./stats/temperature/temperature.html",
     url:"/temperature",
     controller:'temperatureController'
+  })
+  .state('weatherType', {
+    templateUrl: './stats/weather/weather.html',
+    url:'/weather',
+    controller:'weatherController'
   });
 
   $urlRouterProvider.otherwise('/button'); //default if the above doesn't apply
