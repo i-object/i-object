@@ -3,15 +3,8 @@ angular.module('theButton.buttonFactory',[])
 .factory('Info', function($http) {
   
 
-  var postingInfo = function(user) {
-    if(navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function(position) {
-        console.log('position obj looks like', position);
-        console.log("latitude is: ", position.coords.latitude);
-        var latitude = position.coords.latitude
-        console.log("longitude is: ", position.coords.longitude);
-        var longitude = position.coords.longitude;
-        console.log('were posting');
+  var postingInfo = function(user, longitude, latitude) {
+ 
         return $http({
           method: 'POST',
           url: '/api/button',
@@ -20,17 +13,14 @@ angular.module('theButton.buttonFactory',[])
             longitude: longitude,
             latitude: latitude
           }
-        }).then(function(response) {
-          console.log(response)
-        })
+        }).then(function(item) {
+          console.log('were in then of button factory', item)
+          return item;
+          });
 
 
 
-      });
-    } else {
-      console.log('we cant get geo-data');
-    }
-  };
+      };
 
   return {
     postingInfo: postingInfo
