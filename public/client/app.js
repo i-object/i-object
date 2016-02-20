@@ -1,4 +1,4 @@
-angular.module('theButton',['theButton.buttonController', 'theButton.buttonFactory','theButton.temperatureController', 'ui.router','theButton.dateController', 'theButton.statsFactory', 'theButton.weatherController'])
+angular.module('theButton',['theButton.buttonController', 'theButton.buttonFactory','theButton.temperatureController', 'ui.router','theButton.dateController', 'theButton.statsFactory', 'theButton.weatherController', 'theButton.airQualityController'])
 
 .config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider
@@ -26,6 +26,11 @@ angular.module('theButton',['theButton.buttonController', 'theButton.buttonFacto
     templateUrl: './stats/weather/weather.html',
     url:'/weather',
     controller:'weatherController'
+  })
+  .state('airQuality', {
+    templateUrl: './stats/airQuality/airQuality.html',
+    url: '/airQuality',
+    controller: 'airQualityController'
   });
 
   $urlRouterProvider.otherwise('/button/child'); //default if the above doesn't apply
