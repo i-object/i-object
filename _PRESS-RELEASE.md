@@ -17,38 +17,37 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
-  >
+<!--   > Name the product in a way the reader (i.e. your target customers) will understand. -->
+  >Welcome to Sneezr!
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  <!-- > Describe who the market for the product is and what benefit they get. One sentence only underneath the title. -->
   >To help asthma attack sufferes track possible external factors
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
-  > With just the press of a button,  will help people find relationships between various external factors and their asthma attacks. With this information, customers will be better able to hone
-  > in on possible unknown issues and live longer, healthier lives.
+  <!-- > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good. -->
+  > We're at the bleeding edge of merging health care with technlogy! With just the push of a button, you can track the environmental factors occuring around you, so you can track what outside factors might be affecting you! So go ahead, push the button, and let us help you help yourself!
 
 ## Problem ##
-  > Describe the problem your product solves.
-  > will identify unknown environmental factos that cause asthma attacks.
+  <!-- > Describe the problem your product solves. -->
+  > Will identify unknown environmental factos that cause asthma attacks.
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  <!-- > Describe how your product elegantly solves the problem. -->
   > By pressing a button, environmental metadata is recorded and saved so the user can track attacks.
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  <!-- > A quote from a spokesperson in your company. -->
   > Unknown factors can be teased out using this app!
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  <!-- > Describe how easy it is to get started. -->
   > Load the page, and then just press a button!
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
-  > "Witht his app, I realized that whenever I went outside during daylight hours, I had an attacks!" ~Vlad Dracula
+  <!-- > Provide a quote from a hypothetical customer that describes how they experienced the benefit. -->
+  > "With this app, I realized that whenever I went outside during daylight hours, I was hurt!" ~Vlad Dracula
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
-  > Head over to www..com to find out more!
+  <!-- > Wrap it up and give pointers where the reader should go next. -->
+  > Head over to http://sneezr.herokuapp.com/ to find out more!
