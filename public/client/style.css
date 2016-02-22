@@ -1,5 +1,5 @@
 @import url(font-awesome.min.css);
-@import url("http://fonts.googleapis.com/css?family=Raleway:300,700");
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,700");
 
 /*
   Typify by TEMPLATED
@@ -3857,4 +3857,20 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+input::-webkit-input-placeholder {
+color: red !important;
+}
+ 
+input:-moz-placeholder { /* Firefox 18- */
+color: red !important;  
+}
+ 
+input::-moz-placeholder {  /* Firefox 19+ */
+color: red !important;  
+}
+ 
+input:-ms-input-placeholder {  
+color: red !important;  
 }
