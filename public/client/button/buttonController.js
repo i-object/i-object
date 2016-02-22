@@ -28,6 +28,7 @@ angular.module('theButton.buttonController',[])
         });
     } else {
         console.log('everything is awful');
+        alert('geolocation is not working');
     }
   };
 });
