@@ -30,6 +30,15 @@ angular.module('theButton.statsFactory',[])
        tupleData.temperature = ['temp'];
        tupleData.weatherType=['weather'];
        tupleData.airQuality=['airQuality']
+       tupleData.location=[]
+
+       //for loop for location
+       for(var i=0; i<userData.data.length; i++){
+        var currentLat=userData.data[i]['latitude'];
+        var currentLong=userData.data[i]['longitude'];
+        var addToArray={lat: currentLat, lng: currentLong};
+        tupleData.location.push(addToArray);
+       }
         
         var airQualityDescObject={0: 'Poor Air Quality', 1: 'Low Air Quality', 2: 'Moderate Air Quality', 3: 'Fair Air Quality', 4: 'Excellent Air Quality'}
 
