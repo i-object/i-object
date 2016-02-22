@@ -2,7 +2,7 @@ angular.module('theButton.mapMeController',[])
 
 .controller('mapMeController', function ($scope, getData, $timeout, Info, Map, getData){
     //ensures value of inputbox is the saved username from login
-    //$scope.username = Info.username;
+    $scope.username = Info.username;
     $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
     //tupleData factory object gets updated by the retrieveInfo method    
     // TODO $scope.tupleData=getData.tupleData.ADDHERE
