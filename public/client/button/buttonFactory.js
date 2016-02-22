@@ -1,7 +1,8 @@
 angular.module('theButton.buttonFactory',[])
 
 .factory('Info', function($http) {
-  
+  //this gets updated from login page
+  var username;
 
   var postingInfo = function(user, longitude, latitude) {
  
@@ -14,6 +15,7 @@ angular.module('theButton.buttonFactory',[])
             latitude: latitude
           }
         }).then(function(item) {
+          //item represents the object saved in db
           console.log('were in then of button factory', item)
           return item;
           });
@@ -23,7 +25,8 @@ angular.module('theButton.buttonFactory',[])
       };
 
   return {
-    postingInfo: postingInfo
+    postingInfo: postingInfo,
+    username: username
   };
 
 });

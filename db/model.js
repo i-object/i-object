@@ -2,6 +2,7 @@ var db = require('./config.js');
 
 var mongoose = require('mongoose');
 
+//some properties here aren't used in production at the moment such as pressure
 var occurSchema = new mongoose.Schema( {
   day: String,
   hour: Number,
