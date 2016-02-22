@@ -18,44 +18,13 @@
     vertical-align: baseline;
   }
 
- 
-
   article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
     display: block;
   }
 
-body {
+  body {
     line-height: 1;
-    text-shadow: black;
-    font-weight: bold;
-}
-
-
-
-
-input::-webkit-input-placeholder {
-color: red !important;
-}
- 
-input:-moz-placeholder { /* Firefox 18- */
-color: red !important;  
-}
- 
-input::-moz-placeholder {  /* Firefox 19+ */
-color: red !important;  
-}
- 
-input:-ms-input-placeholder {  
-color: red !important;  
-}
-
-.sneeze { 
-  background: url("sneeze.gif") no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
+  }
 
   ol, ul {
     list-style: none;
@@ -3870,4 +3839,14 @@ color: red !important;
       }
 
     }
+    #map {
+      height: 75%;
+      width: 75%;
+    }
+    .angular-google-map-container { height: 50%;
+                                    width: 50%;            }
 
+
+    a{
+  color: green;
+}
