@@ -18,12 +18,42 @@
     vertical-align: baseline;
   }
 
+ 
+
   article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
     display: block;
   }
 
-  body {
+body {
     line-height: 1;
+    text-shadow: black;
+    font-weight: bold;
+}
+
+
+
+
+input::-webkit-input-placeholder {
+color: red !important;
+}
+ 
+input:-moz-placeholder { /* Firefox 18- */
+color: red !important;  
+}
+ 
+input::-moz-placeholder {  /* Firefox 19+ */
+color: red !important;  
+}
+ 
+input:-ms-input-placeholder {  
+color: red !important;  
+}
+
+  .sneeze {
+    background: url("sneeze.gif");
+       background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center; 
   }
 
   ol, ul {
@@ -3839,9 +3869,6 @@
       }
 
     }
-    #map {
-      height: 75%;
-      width: 75%;
-    }
-    .angular-google-map-container { height: 50%;
-                                    width: 50%;            }
+
+    
+>>>>>>> [css] fix css and slight fix to routing
