@@ -1,7 +1,8 @@
 angular.module('theButton.dateController',[])
 
-.controller('dateController', function ($scope, getData, $timeout){
-    $scope.username;
+.controller('dateController', function ($scope, getData, $timeout, Info){
+    console.log(Info.username);
+    $scope.username = Info.username;
     $scope.tupleData=getData.tupleData.date;
 
     $scope.retrieveInfo= getData.retrieveInfo;

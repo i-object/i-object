@@ -1,7 +1,9 @@
 angular.module('theButton.airQualityController',[])
 
-.controller('airQualityController', function ($scope, getData, $timeout){
-    $scope.username;
+.controller('airQualityController', function ($scope, getData, $timeout, Info){
+    console.log(Info.username);
+    $scope.username = Info.username;
+
     $scope.tupleData=getData.tupleData.airQuality;
 
     $scope.retrieveInfo= getData.retrieveInfo;

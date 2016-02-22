@@ -1,4 +1,4 @@
-angular.module('theButton',['theButton.buttonController', 'theButton.buttonFactory','theButton.temperatureController', 'ui.router','theButton.dateController', 'theButton.statsFactory', 'theButton.weatherController', 'theButton.airQualityController', 'ng-fx', 'ngAnimate'])
+angular.module('theButton',['theButton.buttonController', 'theButton.buttonFactory','theButton.temperatureController', 'ui.router','theButton.dateController', 'theButton.statsFactory', 'theButton.weatherController', 'theButton.airQualityController', 'theButton.loginController', 'ng-fx', 'ngAnimate'])
 
 .config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider
@@ -7,7 +7,6 @@ angular.module('theButton',['theButton.buttonController', 'theButton.buttonFacto
     url:'/button',
     controller:'buttonController'
   })
-
   .state('button.child', {
     templateUrl:'./button/buttonChild.html',
     url: '/child'
@@ -27,11 +26,16 @@ angular.module('theButton',['theButton.buttonController', 'theButton.buttonFacto
     url:'/weather',
     controller:'weatherController'
   })
+  .state('login', {
+    templateUrl: './login/login.html',
+    url:'/login',
+    controller:'loginController'
+  })
   .state('airQuality', {
     templateUrl: './stats/airQuality/airQuality.html',
     url: '/airQuality',
     controller: 'airQualityController'
   });
 
-  $urlRouterProvider.otherwise('/button/child'); //default if the above doesn't apply
+  $urlRouterProvider.otherwise('/login'); //default if the above doesn't apply
 });

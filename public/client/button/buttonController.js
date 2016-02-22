@@ -1,8 +1,8 @@
 angular.module('theButton.buttonController',[])
 
 .controller('buttonController', function($scope, Info){
-
-  $scope.username;
+  console.log(Info.username);
+  $scope.username = Info.username;
   $scope.current={};
   $scope.current.airQuality;
   $scope.current.airQualityDesc;

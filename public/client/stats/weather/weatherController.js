@@ -1,7 +1,8 @@
 angular.module('theButton.weatherController',[])
 
-.controller('weatherController', function ($scope, getData, $timeout){
-    $scope.username;
+.controller('weatherController', function ($scope, getData, $timeout, Info){
+    console.log(Info.username);
+    $scope.username = Info.username;
     $scope.tupleData=getData.tupleData.weatherType;
 
     $scope.retrieveInfo= getData.retrieveInfo;

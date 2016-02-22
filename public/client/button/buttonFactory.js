@@ -1,7 +1,7 @@
 angular.module('theButton.buttonFactory',[])
 
 .factory('Info', function($http) {
-  
+  var username;
 
   var postingInfo = function(user, longitude, latitude) {
  
@@ -23,7 +23,8 @@ angular.module('theButton.buttonFactory',[])
       };
 
   return {
-    postingInfo: postingInfo
+    postingInfo: postingInfo,
+    username: username
   };
 
 });
