@@ -1,4 +1,4 @@
-angular.module('theButton',['theButton.buttonController', 'theButton.buttonFactory','theButton.temperatureController', 'ui.router','theButton.dateController', 'theButton.statsFactory', 'theButton.weatherController', 'theButton.airQualityController', 'theButton.loginController', 'ng-fx', 'ngAnimate'])
+angular.module('theButton',['theButton.buttonController', 'theButton.buttonFactory','theButton.temperatureController', 'ui.router','theButton.dateController', 'theButton.statsFactory', 'theButton.weatherController', 'theButton.airQualityController', 'theButton.loginController', 'ng-fx', 'ngAnimate', 'uiGmapgoogle-maps', 'theButton.mapMeController', 'theButton.mapperModel'])
 
 .config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider
@@ -35,6 +35,11 @@ angular.module('theButton',['theButton.buttonController', 'theButton.buttonFacto
     templateUrl: './stats/airQuality/airQuality.html',
     url: '/airQuality',
     controller: 'airQualityController'
+  })
+  .state('mapMe', {
+    templateUrl: './stats/mapMe/mapMe.html',
+    url: '/mapMe',
+    controller: 'mapMeController'
   });
 
   $urlRouterProvider.otherwise('/login'); //default if the above doesn't apply
