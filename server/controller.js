@@ -27,6 +27,18 @@ controller.sendButtonData = function(req,res) {
     request.get(url, function(err,response,body){
       var skyBody = JSON.parse(body);
       var currentSky = skyBody.currently;
+      var offset = skyBody.offset;
+      console.log('currentHour before adjustment is:', currentHour);
+      console.log('offset is:', offset);
+      currentHour += skyBody.offset;
+      console.log(currentHour);
+      if(currentHour > 23) {
+        currentHour -= 24;
+      }
+      else if(currentHour<0) {
+        currentHour += 24;
+      }
+      console.log('currentHour after adjustment is:', currentHour);
 
       //get to breezeOmeter api, 30d free trial 
       request.get({url:breezeUrl, rejectUnauthorized: false

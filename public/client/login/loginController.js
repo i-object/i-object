@@ -9,7 +9,7 @@ angular.module('theButton.loginController',[])
     Info.username = user;
     $scope.username = Info.username;
 
-    //reroutes to homepage after login is recorded
+  //reroutes to homepage after login is recorded
     $location.path('/button/child');
   };
 
