@@ -17,6 +17,8 @@ angular.module('theButton.buttonController',[])
 
   //invoked by button, gathers geo data, updates the .current obj
   $scope.currentData=function(user){
+    $scope.current={};
+    $('#spinner').show();
     if(navigator.geolocation){
         var latitude;
         var longitude;
@@ -24,6 +26,7 @@ angular.module('theButton.buttonController',[])
             latitude = position.coords.latitude;
             longitude = position.coords.longitude;
             $scope.postingInfo(user, longitude, latitude).then(function(info){
+              $('#spinner').hide();
                 $scope.current.airQuality="Air Quality: "+info.data.airQuality;
                 $scope.current.airQualityDesc ="Air Quality status: "+ info.data.airQualityDesc;
                 $scope.current.weather="Weather: "+info.data.weather;

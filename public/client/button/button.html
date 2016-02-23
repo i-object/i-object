@@ -3,10 +3,24 @@
     <input type="text" ng-model='username' class="form-control" placeholder="Input your User Name here">
     <button>Record An Occurence</button>
 </form>
-<a href="#/date"> See your Date Stats</a>
-<a href="#/temperature"> See your Temperature Stats</a>
-<a href="#/weather"> See your Weather Stats</a>
-<a href='#/airQuality'> See your Air Quality Stats </a>
-<a href="#/mapMe"> See your Location Stats </a>
+
+
+
+
 <div ui-view></div>
+<nav id="primary_nav_wrap">
+<ul>
+<li class="current-menu-item"><a>View your stats</a>
+<ul>
+<li><a href="#/date"> See your Date Stats</a></li>
+<li><a href="#/temperature"> See your Temperature Stats</a></li>
+<li><a href="#/weather"> See your Weather Stats</a></li>
+<li><a href='#/airQuality'> See your Air Quality Stats </a></li>
+<li><a href="#/mapMe"> See your Location Stats </a></li>
+</ul>
+</li>
+</ul>
+</nav>
+
+<img id="spinner" ng-src="../ripple.svg" style="display:none;">
 </div>
